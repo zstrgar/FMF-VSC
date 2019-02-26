@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathpartir}
+\usepackage{stmaryrd}
+\usepackage{newtxmath}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{epigraph}
+\usepackage{tikz-cd}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{caption}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\renewcommand{\and}{\\}
+\newcommand{\todo}[1]{{\color{red}{#1}}}
+\newcommand{\nondet}{\oplus}
+\newcommand{\rel}{\sim}
+\newcommand{\ctx}{\Gamma}
+\newcommand{\oftype}{\;:\;}
+\newcommand{\tyA}{A}
+\newcommand{\tyB}{B}
+\newcommand{\ctyC}{C}
+\newcommand{\ctyD}{D}
+\newcommand{\val}{v}
+\newcommand{\judgement}[3][\ctx]{#1 \vdash #2 \oftype #3}
+
+\title{LaTeX in Visual Studio Code}
+\author{Žiga Lukšič}
+
+%===============================================================================
+\begin{document}
+
+\maketitle
+
+\section{Nekaj brezveznega teksta.}
+
+Kot so opazili že mnogi~\cite{DBLP:journals/entcs/Pretnar15,DBLP:journals/jlp/BauerP15}, je res nadležno pisati naključno besedilo za računalniške delavnice. Zato bom na tej točki raje vstavil nekaj preprostih enačb, da malo zapolnim prostor:
+
+\[
+  \judgement{v}{\tyA} = \judgement[\ctx]{v}{\tyA}
+\]
+
+\section{Še več brezveznega teksta}
+
+\begin{tabular}{c|c|c|c|c|c}
+  1 & 0 & 0 & 0 & 0 & 0 \\
+  1 & 1 & 0 & 0 & 0 & 0 \\
+  1 & 0 & 1 & 0 & 0 & 0 \\
+  1 & 0 & 0 & 1 & 0 & 0 \\
+  1 & 0 & 0 & 1 & 1 & 0 \\
+  1 & 0 & 0 & 1 & 0 & 1 \\
+\end{tabular}
+
+Tukaj je naštetega nekaj sadja.
+
+\begin{itemize}
+  \item Papaja
+  \item Liči
+  \item Lubenica
+  \item Hruška
+  \item Ohrovt \todo{(???)}
+  \item Jabolko
+\end{itemize}
+
+Morda bi lahko na neki točki dodali še nekaj zelenjave. Za vsak slučaj pač.
+
+% V splošnem ne uporabljajte \newpage če niste skoraj končali s projektom
+\newpage
+
+\subsection{Se to mar nikoli ne konča?}
+
+Če želim narediti stvari vsaj za silo prepričljive, moram pač tipkati brezvezen tekst. Sedaj bo sledila velika figura.
+
+\begin{figure}[h]
+  \label{fig:velika-figura}
+  \[
+	\begin{array}{rrll}
+		\text{(value) type}~\tyA, \tyB
+		 & ::=   & \mathtt{()}          & \text{unit type}\\
+		 & \;|\; & \mathtt{bool}        & \text{boolean type}\\
+		 & \;|\; & \tyA \to \ctyC     & \text{function type}\\
+		 & \;|\; & \ctyC \to \ctyD   & \text{handler type}\\
+		\\
+		\text{computation type}~\ctyC, \ctyD
+		 & ::=   & {\tyA ! \Delta \backslash \mathcal{E}}\\
+		\\
+		\text{signature}~\Delta
+		 & ::=   & \emptyset \;|\; \Delta \cup \{{\mathit{op} \oftype \tyA \to \tyB}\}\\
+		\\
+		\text{value context}~\ctx
+		 & ::=   & \varepsilon \;|\; \ctx, x \oftype \tyA \\
+		\\
+		\text{template context}~Z
+     & ::=   & \varepsilon \;|\; Z, z \oftype \tyA \to * \\
+     \\
+		\text{computation type}~\ctyC, \ctyD
+		 & ::=   & {\tyA ! \Delta \backslash \mathcal{E}}\\
+		\\
+		\text{signature}~\Delta
+		 & ::=   & \emptyset \;|\; \Delta \cup \{{\mathit{op} \oftype \tyA \to \tyB}\}\\
+		\\
+		\text{value context}~\ctx
+		 & ::=   & \varepsilon \;|\; \ctx, x \oftype \tyA \\
+		\\
+		\text{template context}~Z
+		 & ::=   & \varepsilon \;|\; Z, z \oftype \tyA \to * \\
+	\end{array}
+\]
+
+\end{figure}
+
+\renewcommand\refname{Literatura}
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+
+\end{document}

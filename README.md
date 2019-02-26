@@ -1,2 +1,2 @@
 # FMF-VSC
-Repozitorij v namene VS Code delavnice na FMF
+Repozitorij za VS Code delavnico na FMF

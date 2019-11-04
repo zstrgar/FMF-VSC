@@ -1,0 +1,123 @@
+\documentclass[14pt]{beamer}
+% MoÅ¾ne velikosti pisav so: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+
+% Nastavitve za Å¡umnike
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+% To potrebujemo, da bomo lahko delali zapiske za predavatelja
+\usepackage{pgfpages}
+
+% Treba je loÄiti zapiske za predavatelja in prosojnice za obÄinstvo.
+% To lahko naredimo v beamerju, glej
+% https://gist.github.com/andrejbauer/ac361549ac2186be0cdb
+
+% Primer tako narejenih prosojnic:
+% http://math.andrej.com/wp-content/uploads/2016/06/hott-reals-cca2016.pdf
+
+% Izberemo, ali bomo naredili samo prosojnice, samo zapiske ali oboje
+
+\setbeameroption{hide notes}                        % samo prosojnice
+%\setbeameroption{show only notes}                   % samo zapiski
+%\setbeameroption{show notes on second screen=right}  % oboje
+
+% Ali naj se \item-i pojavljajo zaporedoma, ali vsi naenkrat?
+% Naj se pojavljajo zaporedoma:
+% \beamerdefaultoverlayspecification{<+->}
+
+% MinimalistiÄni still
+\mode<presentation>
+% \usetheme{Goettingen}
+% \usecolortheme{rose}
+
+% Malo manj dolgoÄasna pisava
+\usepackage{palatino}
+\usefonttheme{serif}
+
+% Izklopimo navigacijske simbole, ker so neuporabni
+% \setbeamertemplate{navigation symbols}{}
+
+% Aktiviramo oÅ¡tevilÄenje strani
+\setbeamertemplate{footline}[frame number]{}
+
+% Stil za zapiske
+\setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newtheorem{izrek}{Izrek}
+
+\begin{document}
+
+\title{Kako pripravimo prosojnice}
+\author{Andrej Bauer}
+\date{Planet Zemlja}
+
+\begin{frame}
+  \titlepage
+
+  \note[item]{Povej dober vic, da te zaÄnejo posluÅ¡ati.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zakaj imajo prosojnice naslove?}
+
+  \begin{itemize}
+  \item Da predavatelj ve kaj se dogaja.
+  \item Ker se predavatelju ne da razmiÅ¡ljati.
+  \item Ker je Powerpoint tako naprogramiran.
+  \item Tako naÅ¡tevanje je dolgoÄasno.
+  \end{itemize}
+
+
+  \note[item]{Tu se delaj norca iz prosojnic z naslovi.}
+  \note[item]{Pokritiziraj prosojnice, ki samo nekaj naÅ¡tevajo.}
+  \note[item]{VpraÅ¡aj, ali manjka kakÅ¡na vejica.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{PrikaÅ¾imo vsebino po kosih.}
+
+  \begin{izrek}
+    Za vse $x, y \in \mathbb{R}$ velja $x^2 + y^2 \geq 2 x y$.
+  \end{izrek}
+
+  \pause
+
+  \begin{proof}
+    Vemo, da velja $(x - y)^2 \geq 0$, torej
+    %
+    \begin{equation*}
+      x^2 - 2 x y + y^2 \geq 0.
+    \end{equation*}
+    %
+    \pause
+    Ko na obeh straneh priÅ¡tejemo $2 x y$, dobimo Å¾eleno neenaÄbo
+    %
+    \begin{equation*}
+      x^2 + y^2 \geq 2 x y. \qedhere
+    \end{equation*}
+  \end{proof}
+
+  \note[item]{Ukaz \texttt{{\char92}pause} vstavi premor v prosojnice.}
+  \note[item]{Pojasni, da se ne piÅ¡e ``Å¾eljen''.}
+\end{frame}
+
+\begin{frame}
+  Tu je slika iz interneta:
+  %
+  \begin{center}
+    (Vstavi sliko sem.)
+  \end{center}
+
+  \note[item]{VpraÅ¡aj, kako se vstavi sliko, da vidimo ali se Å¡e spomnijo.}
+  \note[item]{Vstavi sliko, pusti Å¡tudentom, da izberejo vsebino slike, da boÅ¡ imel boljÅ¡e Å¡tudentske ankete.}
+  \note[item]{Ne pretiravaj s cinizmom.}
+  \note[item]{VpraÅ¡aj, v Äem je razlika med ironijo in cinizmom.}
+
+\end{frame}
+
+
+
+\end{document}

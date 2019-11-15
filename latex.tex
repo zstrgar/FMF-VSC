@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+
+
+\usepackage{lmodern}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+{\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}
+\newtheorem{zgled}[definicija]{Zgled}
+}
+
+\setlength{\parindent}{0mm}
+
+
+\title{Buffonova igla}
+\author{Cene Novak}
+
+%==================================================
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    Nekaj o verjetnosti in Buffonovem problemu iz~\cite{book}
+\end{abstract}
+
+\section{Verjetnost dogodka}
+
+\emph{Verjetnost dogodka} je število, ki pove, kolikšna je možnost, da se zgodi nek dogodek.
+
+\begin{definicija}
+Verjetnost dogodka $A$ je razmerje med številom ugodnih izidov $n$
+in vseh možnih izidov $m$ in se izračuna na sledeč način:
+\begin{equation}
+\label{eqn:verjetnost}
+P(A) = \frac{m}{n} = \frac{\text{št. ugodnih izidov}}{\text{št. vseh možnih izidov}}.
+\end{equation}
+\end{definicija}
+
+
+\section{Buffonov problem}
+Problem Buffonove igle je zastavil in rešil francoski 
+matematik G.~L.~Leclerc v 18.~stoletju. Problem se glasi:
+``Na črtast list, kjer so črte razmaknjene za $d$
+vržemo iglo dolžine $l$. Kolikšna je verjetnost, da se igla dotika kakšne črte?''
+
+
+\subsection{Rešitev za kratko iglo}
+%================================================================= uredi
+Na problem pogledamo na sledeč način $P(\{\text{igla seka črto}\}) = P(\{ l\cos{\theta} > H\})$ 
+in si pomagamo z grafom~\ref{fig:graf}.
+
+\begin{figure}[!h]
+\centering
+\caption{Graf za pomoč}
+\label{fig:graf}
+\includegraphics[width=4cm]{graf}
+\end{figure}
+
+Ploščina pod krivuljo predstavlja ugodne izide. Vsi možni izidi pa 
+ustrezajo ploščini pravokotnika. Uporabimo~\eqref{eqn:verjetnost} 
+na strani \pageref{eqn:verjetnost} in računamo
+
+\begin{align*}
+    P(\{\text{igla seka črto}\}) 
+    &= \frac{\displaystyle{\int_{0}^{\frac{\pi}{2}} l\cos{\theta}\,d\theta}}{\frac{\pi}{2}d} \\
+    &= \frac{ l (\sin{\frac{\pi}{2}} - \sin{0})}{\frac{\pi}{2}d}\\
+     &= \frac{2 l}{\pi d}.
+\end{align*}
+
+    
+\subsection{Rešitev za daljšo iglo}
+Za daljšo iglo ($ l \geq d$) le navedimo rezultat
+\begin{equation}
+    \label{eqn:daljsa}
+    P(\{\text{igla seka črto}\}) = 
+    \frac{2}{\pi} \left(\arccos\left(\frac{d}{l}\right) + \frac{l - \sqrt{ l^2 - d^2}}{d} \right).
+\end{equation}
+
+Če združimo, dobimo
+$$
+   P(A) = \begin{cases}
+    \frac{2 l}{\pi d}; & l \leq d \\
+    \frac{2}{\pi} \left(\arccos\left(\frac{d}{l}\right) + \frac{l - \sqrt{ l^2 - d^2}}{d} \right); & l>d.
+   \end{cases}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%uredi cm-je!!!!!
+\section{Primeri}
+\begin{zgled}
+Naj bo $l = 1$~cm in $d = 2$~cm. Ker je $l < d$, računamo
+$$ P(A) = \frac{2 \cdot 1}{\pi \cdot 2} = \frac{1}{\pi} = 0,318. $$
+\end{zgled}
+
+\begin{zgled}
+Naj bo $l = 2$~cm in $d = 1$~cm. Tokrat podatka vstavimo v~\eqref{eqn:daljsa} in dobimo
+$$ P(A) = \frac{2}{\pi}\left(\arccos\left(\frac{1}{2}\right) + \frac{2 - \sqrt{3}}{1}\right) = 0,8372.$$
+\end{zgled} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     LITERATURA
+\bibliographystyle{plain}
+\bibliography{literatura}
+
+\end{document}
